@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Zotero on zzeking&#39;s blog</title>
+        <link>https://zzeking.tk/tags/zotero/</link>
+        <description>Recent content in Zotero on zzeking&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 10 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zzeking.tk/tags/zotero/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Zotero 折腾记录（一）</title>
+        <link>https://zzeking.tk/p/zotero_configure_01/</link>
+        <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://zzeking.tk/p/zotero_configure_01/</guid>
+        <description>&lt;h2 id=&#34;一whats-zotero&#34;&gt;一、What&amp;rsquo;s Zotero&lt;/h2&gt;
+&lt;h2 id=&#34;二how-to-install-zotero&#34;&gt;二、How To Install Zotero&lt;/h2&gt;
+&lt;h2 id=&#34;三why-zotero&#34;&gt;三、Why Zotero&lt;/h2&gt;
+&lt;h2 id=&#34;四usage-of-zotero&#34;&gt;四、Usage of Zotero&lt;/h2&gt;
+</description>
+        </item>
+        <item>
+        <title>Zotero 折腾记录（三）</title>
+        <link>https://zzeking.tk/p/zotero_configure_03/</link>
+        <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://zzeking.tk/p/zotero_configure_03/</guid>
+        <description>&lt;h2 id=&#34;一与office联用&#34;&gt;一、与office联用&lt;/h2&gt;
+&lt;h2 id=&#34;二与obsidian联用&#34;&gt;二、与Obsidian联用&lt;/h2&gt;
+&lt;h2 id=&#34;三123&#34;&gt;三、123&lt;/h2&gt;
+</description>
+        </item>
+        <item>
+        <title>Zotero 折腾记录（二）</title>
+        <link>https://zzeking.tk/p/zotero_configure_02/</link>
+        <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://zzeking.tk/p/zotero_configure_02/</guid>
+        <description>&lt;h2 id=&#34;一常用插件&#34;&gt;一、常用插件&lt;/h2&gt;
+&lt;h3 id=&#34;11-zotfile&#34;&gt;1.1 zotfile&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:  &lt;a class=&#34;link&#34; href=&#34;http://zotfile.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ZotFile - Advanced PDF management for Zotero&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/jlegewie/zotfile&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;jlegewie/zotfile (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description:  Zotero plugin to manage your attachments:  automatically rename, move, and attach PDFs (or other files) to Zotero items, sync PDFs from your Zotero library to your (mobile) PDF reader (e.g. an iPad, Android tablet, etc.), and extract PDF annotations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-sci-hub&#34;&gt;1.2 Sci-Hub&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:\&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/ethanwillis/zotero-scihub&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ethanwillis/zotero-scihub (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description: A plugin that will automatically download PDFs of zotero items from sci-hub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;13-pdf-translate&#34;&gt;1.3 PDF Translate&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:\&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/windingwind/zotero-pdf-translate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;windingwind/zotero-pdf-translate (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description: PDF translation add-on for Zotero 6&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;14-jasminum茉莉花&#34;&gt;1.4 jasminum(茉莉花)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:\&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/l0o0/jasminum&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;l0o0/jasminum (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description:  A Zotero add-on to retrive CNKI meta data. 一个简单的Zotero 插件，用于识别中文元数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;15-zotero-if&#34;&gt;1.5 Zotero if&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:\&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/qnscholar/zotero-if&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;qnscholar/zotero-if (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description: 一款可以为 Zotero 文献更新【影响因子】的效率工具，不过远不止于此。An efficient tool for updating JCR IF for Zotero Items, and far more than that.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;16-zotero-更新影响因子&#34;&gt;1.6 Zotero 更新影响因子&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:\&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/redleafnew/zotero-updateifs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;redleafnew/zotero-updateifs (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description: 从唯问更新影响因子Update IFs from Justscience，其他一系列工具，详见Readme.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;17-doi-manager&#34;&gt;1.7 DOI manager&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:\&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/bwiernik/zotero-shortdoi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;bwiernik/zotero-shortdoi (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description: Zotero extension to retrieve and validate DOIs and shortDOIs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;18-zotero-preview&#34;&gt;1.8 Zotero preview&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:\&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/dcartertod/zotero-plugins&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;dcartertod/zotero-plugins (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description: Terrifically small pieces of functionality. This project adds a Preview tab with a citation preview for a particular item in Zotero (next to the &amp;ldquo;Related&amp;rdquo; tab) using your chosen bibliographic style.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;19-mdnotes-for-zotero&#34;&gt;1.9 Mdnotes for Zotero&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:\&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/argenos/zotero-mdnotes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;argenos/zotero-mdnotes (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description: A Zotero plugin to export item metadata and notes as markdown files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;110-markdbconnect&#34;&gt;1.10 MarkDBConnect&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url:\&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/daeh/zotero-markdb-connect&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;daeh/zotero-markdb-connect (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description:  Zotero plugin that links your Markdown database to Zotero. Jump directly from Zotero Items to connected Markdown files. Automatically tags Zotero Items so you can easily see which papers you&amp;rsquo;ve made notes for.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;111-better-bibtex-for-zotero&#34;&gt;1.11 Better BibTex for Zotero&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Url: &lt;a class=&#34;link&#34; href=&#34;https://retorque.re/zotero-better-bibtex/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Better BibTeX for Zotero :: Better BibTeX for Zotero (retorque.re)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Github:  &lt;a class=&#34;link&#34; href=&#34;https://github.com/retorquere/zotero-better-bibtex&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;retorquere/zotero-better-bibtex (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Description:  Make Zotero effective for us LaTeX holdouts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;二一些需要特殊配置的插件&#34;&gt;二、一些需要特殊配置的插件&lt;/h2&gt;
+&lt;h2 id=&#34;三一些插件使用感想&#34;&gt;三、一些插件使用感想&lt;/h2&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

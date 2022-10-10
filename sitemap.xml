@@ -3,16 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zzeking.tk/</loc>
-    <lastmod>2022-09-01T21:45:52+08:00</lastmod>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/categories/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/cms/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zzeking.tk/post/</loc>
-    <lastmod>2022-09-01T21:45:52+08:00</lastmod>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/zotero/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/categories/zotero/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/zotero-plugins/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/p/zotero_configure_01/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/p/zotero_configure_03/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/p/zotero_configure_02/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/%E7%A7%91%E7%A0%94/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zzeking.tk/p/test/</loc>
     <lastmod>2022-09-01T21:45:52+08:00</lastmod>
-  </url><url>
-    <loc>https://zzeking.tk/categories/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zzeking.tk/p/test-chinese/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
@@ -42,9 +72,6 @@
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zzeking.tk/categories/syntax/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zzeking.tk/tags/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zzeking.tk/tags/themes/</loc>
