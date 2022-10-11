@@ -9,7 +9,7 @@
 <meta property='og:description' content='A Nginx Server Deploy'>
 <meta property='og:url' content='https://zzeking.tk/p/swag_linuxserver/'>
 <meta property='og:site_name' content='zzeking&#39;s blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Gateway' /><meta property='article:tag' content='WAF' /><meta property='article:tag' content='Nginx' /><meta property='article:tag' content='Reverse Proxy' /><meta property='article:tag' content='Docker' /><meta property='article:tag' content='Container' /><meta property='article:published_time' content='2022-10-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://zzeking.tk/p/swag_linuxserver/linuxserver.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Gateway' /><meta property='article:tag' content='WAF' /><meta property='article:tag' content='Nginx' /><meta property='article:tag' content='Reverse Proxy' /><meta property='article:tag' content='Docker' /><meta property='article:tag' content='Container' /><meta property='article:tag' content='LinuxServer' /><meta property='article:published_time' content='2022-10-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://zzeking.tk/p/swag_linuxserver/linuxserver.png' />
 <meta name="twitter:title" content="Nginx 整合容器 Swag 搭建与使用">
 <meta name="twitter:description" content="A Nginx Server Deploy"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://zzeking.tk/p/swag_linuxserver/linuxserver.png' /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -377,7 +377,7 @@
 
 
                 <time class="article-time--reading">
-                    5 minute read
+                    6 minute read
                 </time>
             </div>
         
@@ -391,7 +391,19 @@
     <section class="article-content">
     
     
-    <h2 id="国内服务器安装">国内服务器安装</h2>
+    <h2 id="服务器安装swag">服务器安装Swag</h2>
+<h3 id="swag-简介">Swag 简介</h3>
+<p><a class="link" href="https://hub.docker.com/r/linuxserver/swag"  target="_blank" rel="noopener"
+    >SWAG</a> is a rebirth of our <a class="link" href="https://hub.docker.com/r/linuxserver/letsencrypt"  target="_blank" rel="noopener"
+    >letsencrypt docker image</a>, a full fledged web server and reverse proxy that includes Nginx, Php7, Certbot (Let&rsquo;s Encrypt client) and Fail2ban.</p>
+<p>Swag 是linuxserver团队打造的一款nginx整合容器. 可以快速完成服务器网关建设, 构建服务器应用等等.</p>
+<p>项目地址: <a class="link" href="https://docs.linuxserver.io/images/docker-swag"  target="_blank" rel="noopener"
+    >linuxserver/swag - LinuxServer.io</a></p>
+<p>Docker_Hub: <a class="link" href="https://hub.docker.com/r/linuxserver/swag"  target="_blank" rel="noopener"
+    >linuxserver/swag - Docker Image | Docker Hub</a></p>
+<p>Github: <a class="link" href="https://github.com/linuxserver/docker-swag"  target="_blank" rel="noopener"
+    >linuxserver/docker-swag: Nginx webserver and reverse proxy with php support and a built-in Certbot (Let&rsquo;s Encrypt) client. It also contains fail2ban for intrusion prevention. (github.com)</a></p>
+<h3 id="部署记录">部署记录</h3>
 <p>Docker Engine 请使用官方脚本自行安装.</p>
 <p>有时候国内服务器访问<a class="link" href="https://hub.docker.com/"  target="_blank" rel="noopener"
     >Docker Hub Container Image Library | App Containerization</a>缓慢, 需要使用一点点加速小技巧. 常用方式有：</p>
@@ -669,7 +681,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>完成配置修改, 将内容写入到 <code>name.subfolder.conf</code>,  放入<code>path to swag/nginx/proxy-confs</code>然后重启容器即可使配置生效.</p>
-<h3 id="特别说明">特别说明</h3>
+<h3 id="特别说明1">特别说明1</h3>
 <p>由于swag为容器应用，要用它来代理非容器应用，直接设置 <code>127.0.0.1</code> 地址肯定是不行的. 非容器监听地址一般为 <code>0.0.0.0</code>，那么也就是<code>docker0</code>或者你设置的<code>nginx</code>网络也在应用监听地址中. 这样来说只需要把下面配置中的<code>application_name</code>改成 <code>172.19.0.1</code>这种路由地址（具体地址以你的swag容器网络网段为准）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -746,7 +758,12 @@
 </span></span><span class="line"><span class="cl">        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="实战">实战</h2>
+</div><h3 id="特别说明2">特别说明2</h3>
+<p>Linuxserver 团队打造的Swag是为了其强大的应用容器库做准备的，所以Swag有一系列的完成配置文件，这些文件可以在一个单独的仓库查看：
+<a class="link" href="https://github.com/linuxserver/reverse-proxy-confs"  target="_blank" rel="noopener"
+    >linuxserver/reverse-proxy-confs: These confs are pulled into our SWAG image: https://github.com/linuxserver/docker-swag</a>
+这无疑给了我很多学习预选择机会. 部署应用优先选择Linuxserver制作的容器，相得益彰.</p>
+<h2 id="实战">实战</h2>
 <h3 id="使用swag反代nezha监控dashboard程序">使用swag反代Nezha监控Dashboard程序</h3>
 <p>Nezha是一款不错的服务器探针程序，分为Dashboard程序和Agent程序.</p>
 <p>Nezha官方文档网址: <a class="link" href="https://nezhahq.github.io/index.html"  target="_blank" rel="noopener"
@@ -1004,6 +1021,8 @@
         
             <a href="/tags/container/">Container</a>
         
+            <a href="/tags/linuxserver/">LinuxServer</a>
+        
     </section>
 
 
@@ -1194,11 +1213,17 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#国内服务器安装">国内服务器安装</a></li>
+    <li><a href="#服务器安装swag">服务器安装Swag</a>
+      <ol>
+        <li><a href="#swag-简介">Swag 简介</a></li>
+        <li><a href="#部署记录">部署记录</a></li>
+      </ol>
+    </li>
     <li><a href="#swag_nginx-配置文件修改与自定义">swag_nginx 配置文件修改与自定义</a>
       <ol>
         <li><a href="#修改记录">修改记录</a></li>
-        <li><a href="#特别说明">特别说明</a></li>
+        <li><a href="#特别说明1">特别说明1</a></li>
+        <li><a href="#特别说明2">特别说明2</a></li>
       </ol>
     </li>
     <li><a href="#实战">实战</a>

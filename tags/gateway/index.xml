@@ -12,7 +12,19 @@
         <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
         
         <guid>https://zzeking.tk/p/swag_linuxserver/</guid>
-        <description>&lt;img src="https://zzeking.tk/p/swag_linuxserver/linuxserver.png" alt="Featured image of post Nginx 整合容器 Swag 搭建与使用" /&gt;&lt;h2 id=&#34;国内服务器安装&#34;&gt;国内服务器安装&lt;/h2&gt;
+        <description>&lt;img src="https://zzeking.tk/p/swag_linuxserver/linuxserver.png" alt="Featured image of post Nginx 整合容器 Swag 搭建与使用" /&gt;&lt;h2 id=&#34;服务器安装swag&#34;&gt;服务器安装Swag&lt;/h2&gt;
+&lt;h3 id=&#34;swag-简介&#34;&gt;Swag 简介&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hub.docker.com/r/linuxserver/swag&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SWAG&lt;/a&gt; is a rebirth of our &lt;a class=&#34;link&#34; href=&#34;https://hub.docker.com/r/linuxserver/letsencrypt&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;letsencrypt docker image&lt;/a&gt;, a full fledged web server and reverse proxy that includes Nginx, Php7, Certbot (Let&amp;rsquo;s Encrypt client) and Fail2ban.&lt;/p&gt;
+&lt;p&gt;Swag 是linuxserver团队打造的一款nginx整合容器. 可以快速完成服务器网关建设, 构建服务器应用等等.&lt;/p&gt;
+&lt;p&gt;项目地址: &lt;a class=&#34;link&#34; href=&#34;https://docs.linuxserver.io/images/docker-swag&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;linuxserver/swag - LinuxServer.io&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Docker_Hub: &lt;a class=&#34;link&#34; href=&#34;https://hub.docker.com/r/linuxserver/swag&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;linuxserver/swag - Docker Image | Docker Hub&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Github: &lt;a class=&#34;link&#34; href=&#34;https://github.com/linuxserver/docker-swag&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;linuxserver/docker-swag: Nginx webserver and reverse proxy with php support and a built-in Certbot (Let&amp;rsquo;s Encrypt) client. It also contains fail2ban for intrusion prevention. (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;部署记录&#34;&gt;部署记录&lt;/h3&gt;
 &lt;p&gt;Docker Engine 请使用官方脚本自行安装.&lt;/p&gt;
 &lt;p&gt;有时候国内服务器访问&lt;a class=&#34;link&#34; href=&#34;https://hub.docker.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Docker Hub Container Image Library | App Containerization&lt;/a&gt;缓慢, 需要使用一点点加速小技巧. 常用方式有：&lt;/p&gt;
@@ -290,7 +302,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;完成配置修改, 将内容写入到 &lt;code&gt;name.subfolder.conf&lt;/code&gt;,  放入&lt;code&gt;path to swag/nginx/proxy-confs&lt;/code&gt;然后重启容器即可使配置生效.&lt;/p&gt;
-&lt;h3 id=&#34;特别说明&#34;&gt;特别说明&lt;/h3&gt;
+&lt;h3 id=&#34;特别说明1&#34;&gt;特别说明1&lt;/h3&gt;
 &lt;p&gt;由于swag为容器应用，要用它来代理非容器应用，直接设置 &lt;code&gt;127.0.0.1&lt;/code&gt; 地址肯定是不行的. 非容器监听地址一般为 &lt;code&gt;0.0.0.0&lt;/code&gt;，那么也就是&lt;code&gt;docker0&lt;/code&gt;或者你设置的&lt;code&gt;nginx&lt;/code&gt;网络也在应用监听地址中. 这样来说只需要把下面配置中的&lt;code&gt;application_name&lt;/code&gt;改成 &lt;code&gt;172.19.0.1&lt;/code&gt;这种路由地址（具体地址以你的swag容器网络网段为准）&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -367,7 +379,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        TX errors &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; overruns &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  carrier &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  collisions &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;实战&#34;&gt;实战&lt;/h2&gt;
+&lt;/div&gt;&lt;h3 id=&#34;特别说明2&#34;&gt;特别说明2&lt;/h3&gt;
+&lt;p&gt;Linuxserver 团队打造的Swag是为了其强大的应用容器库做准备的，所以Swag有一系列的完成配置文件，这些文件可以在一个单独的仓库查看：
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/linuxserver/reverse-proxy-confs&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;linuxserver/reverse-proxy-confs: These confs are pulled into our SWAG image: https://github.com/linuxserver/docker-swag&lt;/a&gt;
+这无疑给了我很多学习预选择机会. 部署应用优先选择Linuxserver制作的容器，相得益彰.&lt;/p&gt;
+&lt;h2 id=&#34;实战&#34;&gt;实战&lt;/h2&gt;
 &lt;h3 id=&#34;使用swag反代nezha监控dashboard程序&#34;&gt;使用swag反代Nezha监控Dashboard程序&lt;/h3&gt;
 &lt;p&gt;Nezha是一款不错的服务器探针程序，分为Dashboard程序和Agent程序.&lt;/p&gt;
 &lt;p&gt;Nezha官方文档网址: &lt;a class=&#34;link&#34; href=&#34;https://nezhahq.github.io/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
