@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='A Nginx Server Deploy'><title>Nginx 整合容器 Swag 搭建与使用</title>
+
+<link rel='canonical' href='https://zzeking.tk/p/swag_linuxserver/'>
+
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='Nginx 整合容器 Swag 搭建与使用'>
+<meta property='og:description' content='A Nginx Server Deploy'>
+<meta property='og:url' content='https://zzeking.tk/p/swag_linuxserver/'>
+<meta property='og:site_name' content='zzeking&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Gateway' /><meta property='article:tag' content='WAF' /><meta property='article:tag' content='Nginx' /><meta property='article:tag' content='Reverse Proxy' /><meta property='article:tag' content='Docker' /><meta property='article:tag' content='Container' /><meta property='article:published_time' content='2022-10-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://zzeking.tk/p/swag_linuxserver/linuxserver.png' />
+<meta name="twitter:title" content="Nginx 整合容器 Swag 搭建与使用">
+<meta name="twitter:description" content="A Nginx Server Deploy"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://zzeking.tk/p/swag_linuxserver/linuxserver.png' /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hucb7cf0f41728f6fa2fa143ee08331b4a_157747_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">zzeking&#39;s blog</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='zzeking@outlook.com'
+                        target="_blank"
+                        title="E-mail"
+                    >
+                        
+                        
+                            <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<path style="fill:#B0DACC;" d="M266.633,220.477c7.975-7.975,21.52-1.27,20.014,9.908l-16.206,120.249
+	c-0.709,5.26-4.847,9.398-10.107,10.107l-120.249,16.206c-11.178,1.506-17.884-12.039-9.908-20.014"/>
+<g>
+	<path style="fill:#211E48;" d="M138.356,390.693c-9.602,0-18.239-5.301-22.621-14.152c-4.916-9.932-3.03-21.411,4.806-29.247
+		c5.322-5.322,13.953-5.322,19.277,0c4.214,4.214,5.092,10.503,2.632,15.58l114.672-15.453l15.453-114.673
+		c-5.077,2.46-11.366,1.584-15.582-2.633c-5.322-5.322-5.322-13.953,0-19.275c7.837-7.836,19.319-9.721,29.248-4.805
+		c9.931,4.916,15.391,15.19,13.911,26.172L283.95,352.453c-1.524,11.307-10.485,20.27-21.794,21.794l-120.249,16.206
+		C140.714,390.613,139.527,390.693,138.356,390.693z"/>
+	<path style="fill:#211E48;" d="M444.083,362.973c-5.621,0-10.883-3.504-12.857-9.107c-2.5-7.1,1.229-14.882,8.329-17.383
+		c27.027-9.515,45.186-35.071,45.186-63.593c0-32.345-23.107-60.182-54.94-66.192c-3.707-0.701-6.958-2.906-8.981-6.091
+		c-2.021-3.185-2.632-7.067-1.686-10.72c2.415-9.331,3.641-18.996,3.641-28.726c0-62.993-51.248-114.241-114.24-114.241
+		c-39.315,0-75.392,19.845-96.507,53.087c-3.641,5.731-10.946,7.909-17.13,5.107c-9.741-4.413-20.116-6.651-30.835-6.651
+		c-41.266,0-74.839,33.573-74.839,74.84c0,5.744,0.677,11.534,2.013,17.208c0.84,3.572,0.204,7.33-1.761,10.428
+		c-1.965,3.098-5.099,5.271-8.689,6.03c-31.015,6.55-53.527,34.276-53.527,65.921c0,25.992,15.316,49.964,39.019,61.071
+		c6.816,3.193,9.753,11.309,6.56,18.125c-3.193,6.816-11.307,9.755-18.125,6.56C21.477,343.071,0,309.409,0,272.889
+		c0-40.028,25.628-75.587,62.524-88.988c-0.371-3.53-0.557-7.071-0.557-10.603c0-56.298,45.802-102.1,102.098-102.1
+		c10.757,0,21.261,1.653,31.357,4.924c26.687-35.555,68.19-56.466,113.114-56.466c78.024,0,141.499,63.477,141.499,141.501
+		c0,7.492-0.589,14.957-1.756,22.315C485.904,196.485,512,232.14,512,272.888c0,40.066-25.475,75.956-63.391,89.307
+		C447.113,362.722,445.583,362.973,444.083,362.973z"/>
+	<path style="fill:#211E48;" d="M236.255,492.342c-7.242,0-14.05-2.82-19.168-7.941l-99.19-99.188
+		c-10.569-10.57-10.569-27.767,0-38.337l138.679-138.681c5.121-5.119,11.927-7.939,19.168-7.939c7.242,0,14.05,2.82,19.168,7.941
+		l99.19,99.188c5.119,5.119,7.939,11.926,7.939,19.168c0,7.242-2.82,14.048-7.941,19.168l-13.255,13.255
+		c-5.322,5.322-13.953,5.324-19.275,0c-5.322-5.324-5.324-13.953,0-19.275l13.147-13.147l-98.974-98.974L137.278,366.044
+		l98.974,98.974l86.894-86.896c5.322-5.322,13.953-5.322,19.277,0c5.322,5.322,5.322,13.953,0,19.277l-87.001,87.002
+		C250.303,489.522,243.495,492.342,236.255,492.342z"/>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>github</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="github" fill="#000000">
+            <path d="M12,2 C6.475,2 2,6.475 2,12 C2,16.425 4.8625,20.1625 8.8375,21.4875 C9.3375,21.575 9.525,21.275 9.525,21.0125 C9.525,20.775 9.5125,19.9875 9.5125,19.15 C7,19.6125 6.35,18.5375 6.15,17.975 C6.0375,17.6875 5.55,16.8 5.125,16.5625 C4.775,16.375 4.275,15.9125 5.1125,15.9 C5.9,15.8875 6.4625,16.625 6.65,16.925 C7.55,18.4375 8.9875,18.0125 9.5625,17.75 C9.65,17.1 9.9125,16.6625 10.2,16.4125 C7.975,16.1625 5.65,15.3 5.65,11.475 C5.65,10.3875 6.0375,9.4875 6.675,8.7875 C6.575,8.5375 6.225,7.5125 6.775,6.1375 C6.775,6.1375 7.6125,5.875 9.525,7.1625 C10.325,6.9375 11.175,6.825 12.025,6.825 C12.875,6.825 13.725,6.9375 14.525,7.1625 C16.4375,5.8625 17.275,6.1375 17.275,6.1375 C17.825,7.5125 17.475,8.5375 17.375,8.7875 C18.0125,9.4875 18.4,10.375 18.4,11.475 C18.4,15.3125 16.0625,16.1625 13.8375,16.4125 C14.2,16.725 14.5125,17.325 14.5125,18.2625 C14.5125,19.6 14.5,20.675 14.5,21.0125 C14.5,21.275 14.6875,21.5875 15.1875,21.4875 C19.1375,20.1625 22,16.4125 22,12 C22,6.475 17.525,2 12,2 L12,2 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/swag_linuxserver/">
+                <img src="/p/swag_linuxserver/linuxserver_hu8fc0851b0954c46f4ca6837b35abcab0_26863_800x0_resize_box_3.png"
+                        srcset="/p/swag_linuxserver/linuxserver_hu8fc0851b0954c46f4ca6837b35abcab0_26863_800x0_resize_box_3.png 800w, /p/swag_linuxserver/linuxserver_hu8fc0851b0954c46f4ca6837b35abcab0_26863_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="600" 
+                        loading="lazy"
+                        alt="Featured image of post Nginx 整合容器 Swag 搭建与使用" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/network/" >
+                Network
+            </a>
+        
+            <a href="/categories/linux/" >
+                Linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/swag_linuxserver/">Nginx 整合容器 Swag 搭建与使用</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            A Nginx Server Deploy
+        </h3>
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 11, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="国内服务器安装">国内服务器安装</h2>
+<p>Docker Engine 请使用官方脚本自行安装.</p>
+<p>有时候国内服务器访问<a class="link" href="https://hub.docker.com/"  target="_blank" rel="noopener"
+    >Docker Hub Container Image Library | App Containerization</a>缓慢, 需要使用一点点加速小技巧. 常用方式有：</p>
+<ul>
+<li>修改docker daemon</li>
+</ul>
+<p>参考此文章修改: <a class="link" href="https://zhuanlan.zhihu.com/p/460489756"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/460489756</a></p>
+<ul>
+<li>使用Docker Proxy加速</li>
+</ul>
+<blockquote>
+<p>此处使用<a class="link" href="https://dockerproxy.com/"  target="_blank" rel="noopener"
+    >Docker Proxy 镜像加速</a>安装.</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 拉取</span>
+</span></span><span class="line"><span class="cl">docker pull dockerproxy.com/linuxserver/swag:latest
+</span></span><span class="line"><span class="cl"><span class="c1">## 改名</span>
+</span></span><span class="line"><span class="cl">docker tag dockerproxy.com/linuxserver/swag:latest linuxserver/swag:latest
+</span></span><span class="line"><span class="cl"><span class="c1">## 删除代理镜像</span>
+</span></span><span class="line"><span class="cl">docker rmi dockerproxy.com/linuxserver/swag:latest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>完成镜像拉取, 便可以进行容器部署, 此处需要注意的是为了反代业务正常, swag容器尽量与应用拥有同一网络（应用为容器则配置同一Network, 应用非容器swag反代的地址应当是swag所属网络的路由+端口, 后文会有配置文件展示）.</p>
+<blockquote>
+<p>搭建命令如下</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 创建一个新的桥接网络, 这样配置文件可以简写</span>
+</span></span><span class="line"><span class="cl">docker network create nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## Docker run</span>
+</span></span><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --name<span class="o">=</span>swag <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --cap-add<span class="o">=</span>NET_ADMIN <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --network<span class="o">=</span>nginx <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -e <span class="nv">PUID</span><span class="o">=</span><span class="m">1000</span> <span class="se">\ </span><span class="c1"># Optional</span>
+</span></span><span class="line"><span class="cl">  -e <span class="nv">PGID</span><span class="o">=</span><span class="m">1000</span> <span class="se">\ </span><span class="c1"># Optional</span>
+</span></span><span class="line"><span class="cl">  -e <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai <span class="se">\ </span><span class="c1"># Optional,  时区设置</span>
+</span></span><span class="line"><span class="cl">  -e <span class="nv">URL</span><span class="o">=</span>yourdomain.here <span class="se">\ </span><span class="c1"># 你的域名</span>
+</span></span><span class="line"><span class="cl">  -e <span class="nv">VALIDATION</span><span class="o">=</span>http <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -e <span class="nv">SUBDOMAINS</span><span class="o">=</span>www, sub1, sub2, sub3 <span class="se">\ </span><span class="c1"># 你的二级域名, 你的记录</span>
+</span></span><span class="line"><span class="cl">  -e <span class="nv">EMAIL</span><span class="o">=</span>xxx@yourmail.com <span class="se">\ </span><span class="c1"># 你的邮箱, 由于使用let&#39;s encrypte证书所以需要使用一个邮箱</span>
+</span></span><span class="line"><span class="cl">  -e <span class="nv">ONLY_SUBDOMAINS</span><span class="o">=</span><span class="nb">true</span> <span class="se">\ </span><span class="c1"># 仅支持子域名模式</span>
+</span></span><span class="line"><span class="cl">  -e <span class="nv">STAGING</span><span class="o">=</span><span class="nb">false</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -p 443:443 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -p 80:80 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v <span class="s1">&#39;path to config&#39;</span>:/config <span class="se">\ </span><span class="c1"># 配置文件位置</span>
+</span></span><span class="line"><span class="cl">  --restart unless-stopped <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  linuxserver/swag:latest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更多细节请参考官方博客：
+<a class="link" href="https://docs.linuxserver.io/images/docker-swag"  target="_blank" rel="noopener"
+    >linuxserver/swag - LinuxServer.io</a></p>
+<blockquote>
+<p>搭建完成访问网站效果图</p>
+</blockquote>
+<p>访问sub.yourdomain.here</p>
+<p><img src="/p/swag_linuxserver/swag_success_1.png"
+	width="659"
+	height="235"
+	srcset="/p/swag_linuxserver/swag_success_1_hud16668bcf3b769a734c550bc56676861_21653_480x0_resize_box_3.png 480w, /p/swag_linuxserver/swag_success_1_hud16668bcf3b769a734c550bc56676861_21653_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Swag 部署成功图"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="280"
+		data-flex-basis="673px"
+	
+></p>
+<h2 id="swag_nginx-配置文件修改与自定义">swag_nginx 配置文件修改与自定义</h2>
+<h3 id="修改记录">修改记录</h3>
+<p>部署完成后, 文件夹内容一览：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@centos swag<span class="o">]</span><span class="c1"># tree -L 1</span>
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── crontabs
+</span></span><span class="line"><span class="cl">├── custom-cont-init.d
+</span></span><span class="line"><span class="cl">├── custom-services.d
+</span></span><span class="line"><span class="cl">├── dns-conf
+</span></span><span class="line"><span class="cl">├── docker-compose.yml
+</span></span><span class="line"><span class="cl">├── etc
+</span></span><span class="line"><span class="cl">├── fail2ban
+</span></span><span class="line"><span class="cl">├── geoip2db
+</span></span><span class="line"><span class="cl">├── keys
+</span></span><span class="line"><span class="cl">├── log
+</span></span><span class="line"><span class="cl">├── nginx
+</span></span><span class="line"><span class="cl">├── php
+</span></span><span class="line"><span class="cl">├── swag_deploy.sh
+</span></span><span class="line"><span class="cl">└── www
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此处主要配置nginx文件夹的内容, nginx文件夹内容一览：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@centos nginx<span class="o">]</span><span class="c1"># tree -L 1</span>
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── authelia-location.conf
+</span></span><span class="line"><span class="cl">├── authelia-server.conf
+</span></span><span class="line"><span class="cl">├── dhparams.pem
+</span></span><span class="line"><span class="cl">├── ldap.conf <span class="c1"># swag内置ldap, 相关配置使用此文件</span>
+</span></span><span class="line"><span class="cl">├── nginx.conf
+</span></span><span class="line"><span class="cl">├── proxy.conf
+</span></span><span class="line"><span class="cl">├── proxy-confs <span class="c1"># 所有站点信息全在这个文件夹, 一般修改这个文件夹即可</span>
+</span></span><span class="line"><span class="cl">├── resolver.conf
+</span></span><span class="line"><span class="cl">├── site-confs
+</span></span><span class="line"><span class="cl">├── ssl.conf
+</span></span><span class="line"><span class="cl">└── worker_processes.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>nginx文件夹内容有很多, 一般为<code>*.subfolder.conf.sample</code>、<code>mealie.subdomain.conf.sample</code>两类, 去掉<code>.sample</code>后缀就表示启用配置.</p>
+<p><code>conf</code>文件示例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## Version 2022/10/08
+</span></span><span class="line"><span class="cl"># make sure that your dns has a cname set for &#39;your application&#39;
+</span></span><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">    listen 443 ssl;
+</span></span><span class="line"><span class="cl">    listen [::]:443 ssl;
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">	## 在此处使用之前部署时设置的subdomian, nginx可使用正则匹配, 请自由发挥
+</span></span><span class="line"><span class="cl">    server_name e5.*;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    include /config/nginx/ssl.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    client_max_body_size 0;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    # enable for ldap auth,  fill in ldap details in ldap.conf
+</span></span><span class="line"><span class="cl">    #include /config/nginx/ldap.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    # enable for Authelia
+</span></span><span class="line"><span class="cl">    #include /config/nginx/authelia-server.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	## location块, 按照nginx使用习惯, 与应用需求自行配置即可
+</span></span><span class="line"><span class="cl">    location / {
+</span></span><span class="line"><span class="cl">        # enable the next two lines for http auth
+</span></span><span class="line"><span class="cl">        #auth_basic &#34;Restricted&#34;;
+</span></span><span class="line"><span class="cl">        #auth_basic_user_file /config/nginx/.htpasswd;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        # enable the next two lines for ldap auth
+</span></span><span class="line"><span class="cl">        #auth_request /auth;
+</span></span><span class="line"><span class="cl">        #error_page 401 =200 /ldaplogin;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        # enable for Authelia
+</span></span><span class="line"><span class="cl">        #include /config/nginx/authelia-location.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        include /config/nginx/proxy.conf;
+</span></span><span class="line"><span class="cl">        include /config/nginx/resolver.conf;
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        ## 在此处设置你的应用容器
+</span></span><span class="line"><span class="cl">        set $upstream_app application_name; # 此处设置你的容器名
+</span></span><span class="line"><span class="cl">        set $upstream_port port_num; # 此处设置你的应用容器端口, 不要使用转发过后的端口
+</span></span><span class="line"><span class="cl">        set $upstream_proto http; # 协议
+</span></span><span class="line"><span class="cl">        proxy_pass $upstream_proto://$upstream_app:$upstream_port;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>完成配置修改, 将内容写入到 <code>name.subfolder.conf</code>,  放入<code>path to swag/nginx/proxy-confs</code>然后重启容器即可使配置生效.</p>
+<h3 id="特别说明">特别说明</h3>
+<p>由于swag为容器应用，要用它来代理非容器应用，直接设置 <code>127.0.0.1</code> 地址肯定是不行的. 非容器监听地址一般为 <code>0.0.0.0</code>，那么也就是<code>docker0</code>或者你设置的<code>nginx</code>网络也在应用监听地址中. 这样来说只需要把下面配置中的<code>application_name</code>改成 <code>172.19.0.1</code>这种路由地址（具体地址以你的swag容器网络网段为准）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">set $upstream_app application_name; 
+</span></span><span class="line"><span class="cl">set $upstream_port port_num; 
+</span></span><span class="line"><span class="cl">set $upstream_proto http;
+</span></span><span class="line"><span class="cl">proxy_pass $upstream_proto://$upstream_app:$upstream_port;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过<code>ifconfig</code>可以看到本机网络信息，如下都是docker的网络：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@centos ~<span class="o">]</span><span class="c1"># ifconfig</span>
+</span></span><span class="line"><span class="cl">br-36f508a07b21: <span class="nv">flags</span><span class="o">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class="m">1500</span>
+</span></span><span class="line"><span class="cl">        inet 172.19.0.1  netmask 255.255.0.0  broadcast 172.19.255.255
+</span></span><span class="line"><span class="cl">        inet6 fe80::42:a8ff:fe58:bb3  prefixlen <span class="m">64</span>  scopeid 0x20&lt;link&gt;
+</span></span><span class="line"><span class="cl">        ether 02:42:a8:58:0b:b3  txqueuelen <span class="m">0</span>  <span class="o">(</span>Ethernet<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX packets <span class="m">25120689</span>  bytes <span class="m">2672406372</span> <span class="o">(</span>2.4 GiB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame <span class="m">0</span>
+</span></span><span class="line"><span class="cl">        TX packets <span class="m">45315619</span>  bytes <span class="m">4553973716</span> <span class="o">(</span>4.2 GiB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">br-ca8fc09ac582: <span class="nv">flags</span><span class="o">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class="m">1500</span>
+</span></span><span class="line"><span class="cl">        inet 172.18.0.1  netmask 255.255.0.0  broadcast 172.18.255.255
+</span></span><span class="line"><span class="cl">        inet6 fe80::42:fdff:fe85:295c  prefixlen <span class="m">64</span>  scopeid 0x20&lt;link&gt;
+</span></span><span class="line"><span class="cl">        ether 02:42:fd:85:29:5c  txqueuelen <span class="m">0</span>  <span class="o">(</span>Ethernet<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX packets <span class="m">678794</span>  bytes <span class="m">171437441</span> <span class="o">(</span>163.4 MiB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame <span class="m">0</span>
+</span></span><span class="line"><span class="cl">        TX packets <span class="m">730677</span>  bytes <span class="m">149178485</span> <span class="o">(</span>142.2 MiB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker0: <span class="nv">flags</span><span class="o">=</span>4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu <span class="m">1500</span>
+</span></span><span class="line"><span class="cl">        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+</span></span><span class="line"><span class="cl">        inet6 fe80::42:baff:fe97:529e  prefixlen <span class="m">64</span>  scopeid 0x20&lt;link&gt;
+</span></span><span class="line"><span class="cl">        ether 02:42:ba:97:52:9e  txqueuelen <span class="m">0</span>  <span class="o">(</span>Ethernet<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX packets <span class="m">12199</span>  bytes <span class="m">902551</span> <span class="o">(</span>881.3 KiB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        RX errors <span class="m">0</span>  dropped <span class="m">0</span>  overruns <span class="m">0</span>  frame <span class="m">0</span>
+</span></span><span class="line"><span class="cl">        TX packets <span class="m">11775</span>  bytes <span class="m">16187036</span> <span class="o">(</span>15.4 MiB<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="实战">实战</h2>
+<h3 id="使用swag反代nezha监控dashboard程序">使用swag反代Nezha监控Dashboard程序</h3>
+<p>Nezha是一款不错的服务器探针程序，分为Dashboard程序和Agent程序.</p>
+<p>Nezha官方文档网址: <a class="link" href="https://nezhahq.github.io/index.html"  target="_blank" rel="noopener"
+    >Home | 哪吒监控 (nezhahq.github.io)</a></p>
+<p>部署完成的Nezha面板如下图所示，80为Nezha的web端口，5555为Nezha的RPC端口.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@centos ~<span class="o">]</span><span class="c1"># docker ps |grep nezha</span>
+</span></span><span class="line"><span class="cl">1638cf07cb2c   registry.cn-shanghai.aliyuncs.com/naibahq/nezha-dashboard   <span class="s2">&#34;/entrypoint.sh&#34;</span>         <span class="m">7</span> weeks ago   Up <span class="m">7</span> weeks    0.0.0.0:5555-&gt;5555/tcp, :::5555-&gt;5555/tcp, 0.0.0.0:8008-&gt;80/tcp, :::8008-&gt;80/tcp 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此处为Nginx Conf文件配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## Version 2021/05/18
+</span></span><span class="line"><span class="cl"># make sure that your dns has a cname set for Nezha
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">    listen 443 ssl;
+</span></span><span class="line"><span class="cl">    listen [::]:443 ssl;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    server_name hw.*;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    include /config/nginx/ssl.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    client_max_body_size 0;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    # enable for ldap auth, fill in ldap details in ldap.conf
+</span></span><span class="line"><span class="cl">    #include /config/nginx/ldap.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    # enable for Authelia
+</span></span><span class="line"><span class="cl">    #include /config/nginx/authelia-server.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    #PROXY-START/
+</span></span><span class="line"><span class="cl">    location / {
+</span></span><span class="line"><span class="cl">        set $upstream_app 172.18.0.1;
+</span></span><span class="line"><span class="cl">        set $upstream_port 8008;
+</span></span><span class="line"><span class="cl">        set $upstream_proto http;
+</span></span><span class="line"><span class="cl">        proxy_pass $upstream_proto://$upstream_app:$upstream_port;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        proxy_set_header Host $http_host;
+</span></span><span class="line"><span class="cl">        proxy_set_header Upgrade $http_upgrade;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    location ~ ^/(ws|terminal/.+)$  {
+</span></span><span class="line"><span class="cl">        set $upstream_app 172.18.0.1;
+</span></span><span class="line"><span class="cl">        set $upstream_port 8008;
+</span></span><span class="line"><span class="cl">        set $upstream_proto http;
+</span></span><span class="line"><span class="cl">        proxy_pass $upstream_proto://$upstream_app:$upstream_port;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        proxy_http_version 1.1;
+</span></span><span class="line"><span class="cl">        proxy_set_header Upgrade $http_upgrade;
+</span></span><span class="line"><span class="cl">        proxy_set_header Connection &#34;Upgrade&#34;;
+</span></span><span class="line"><span class="cl">        proxy_set_header Host $http_host;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="反代e5-renew-x">反代E5 Renew X</h3>
+<p>Microsoft Office 365 Developer E5 给了大家白嫖office以及onedrive等应用的机会. 但是并非永久白嫖，微软会根据开发者对<code>相关API</code>的调用情况为E5订阅服务进行续期. 所以有大佬写了定期自动调用API的程序来完成续期目的(仅能提高成功率，但并非百分百成功). 我使用的API 程序为 SundayRX 大佬写的E5_Renew_X.</p>
+<ul>
+<li>项目地址: <a class="link" href="https://blog.csdn.net/qq_33212020/article/details/119747634"  target="_blank" rel="noopener"
+    >(1条消息) E5 调用API续订服务：Microsoft 365 E5 Renew X_SundayRX的博客-CSDN博客_e5续订</a></li>
+<li>Docker_Hub: <a class="link" href="https://hub.docker.com/r/gladtbam/ms365_e5_renewx"  target="_blank" rel="noopener"
+    >gladtbam/ms365_e5_renewx - Docker Image | Docker Hub</a></li>
+</ul>
+<p>部署命令如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --name<span class="o">=</span>e5 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --restart<span class="o">=</span>always <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --network<span class="o">=</span>nginx <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --hostname<span class="o">=</span>e5 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v <span class="nv">$PWD</span>/Deploy:/renewx/Deploy<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v <span class="nv">$PWD</span>/appdata:/renewx/appdata<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    gladtbam/ms365_e5_renewx:latest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Nginx Conf如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## Version 2022/10/08
+</span></span><span class="line"><span class="cl"># make sure that your dns has a cname set for e5_renew_x
+</span></span><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">    listen 443 ssl;
+</span></span><span class="line"><span class="cl">    listen [::]:443 ssl;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    server_name e5.*;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    include /config/nginx/ssl.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    client_max_body_size 0;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    # enable for ldap auth, fill in ldap details in ldap.conf
+</span></span><span class="line"><span class="cl">    #include /config/nginx/ldap.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    # enable for Authelia
+</span></span><span class="line"><span class="cl">    #include /config/nginx/authelia-server.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    location / {
+</span></span><span class="line"><span class="cl">        # enable the next two lines for http auth
+</span></span><span class="line"><span class="cl">        #auth_basic &#34;Restricted&#34;;
+</span></span><span class="line"><span class="cl">        #auth_basic_user_file /config/nginx/.htpasswd;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        # enable the next two lines for ldap auth
+</span></span><span class="line"><span class="cl">        #auth_request /auth;
+</span></span><span class="line"><span class="cl">        #error_page 401 =200 /ldaplogin;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        # enable for Authelia
+</span></span><span class="line"><span class="cl">        #include /config/nginx/authelia-location.conf;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        include /config/nginx/proxy.conf;
+</span></span><span class="line"><span class="cl">        include /config/nginx/resolver.conf;
+</span></span><span class="line"><span class="cl">        set $upstream_app e5;
+</span></span><span class="line"><span class="cl">        set $upstream_port 80;
+</span></span><span class="line"><span class="cl">        set $upstream_proto https;
+</span></span><span class="line"><span class="cl">        proxy_pass $upstream_proto://$upstream_app:$upstream_port;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>部署完成的网站地址：<a class="link" href="https://e5.zze-666.top/"  target="_blank" rel="noopener"
+    >https://e5.zze-666.top/</a></p>
+<h2 id="参考">参考</h2>
+<p><a class="link" href="https://blog.csdn.net/qq_33212020/article/details/119747634"  target="_blank" rel="noopener"
+    > E5 调用API续订服务：Microsoft 365 E5 Renew X_SundayRX的博客-CSDN博客_e5续订</a>
+<a class="link" href="https://hub.docker.com/r/linuxserver/swag"  target="_blank" rel="noopener"
+    >linuxserver/swag - Docker Image | Docker Hub</a>
+<a class="link" href="https://dockerproxy.com/"  target="_blank" rel="noopener"
+    >Docker Proxy 镜像加速</a>
+<a class="link" href="https://docs.docker.com/engine/"  target="_blank" rel="noopener"
+    >Docker Engine overview | Docker Documentation</a>
+<a class="link" href="https://nezhahq.github.io/index.html"  target="_blank" rel="noopener"
+    >Home | 哪吒监控 (nezhahq.github.io)</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/gateway/">Gateway</a>
+        
+            <a href="/tags/waf/">WAF</a>
+        
+            <a href="/tags/nginx/">Nginx</a>
+        
+            <a href="/tags/reverse-proxy/">Reverse Proxy</a>
+        
+            <a href="/tags/docker/">Docker</a>
+        
+            <a href="/tags/container/">Container</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span><a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans"  target="_blank" rel="noopener"
+    >Licensed under CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 zzeking&#39;s blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#国内服务器安装">国内服务器安装</a></li>
+    <li><a href="#swag_nginx-配置文件修改与自定义">swag_nginx 配置文件修改与自定义</a>
+      <ol>
+        <li><a href="#修改记录">修改记录</a></li>
+        <li><a href="#特别说明">特别说明</a></li>
+      </ol>
+    </li>
+    <li><a href="#实战">实战</a>
+      <ol>
+        <li><a href="#使用swag反代nezha监控dashboard程序">使用swag反代Nezha监控Dashboard程序</a></li>
+        <li><a href="#反代e5-renew-x">反代E5 Renew X</a></li>
+      </ol>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
