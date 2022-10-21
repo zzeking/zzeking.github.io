@@ -1227,29 +1227,61 @@ $$&lt;/p&gt;</description>
         <item>
         <title>About</title>
         <link>https://zzeking.tk/about/</link>
-        <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+        <pubDate>Sat, 01 Sep 2018 00:00:00 +0000</pubDate>
         
         <guid>https://zzeking.tk/about/</guid>
-        <description>&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Apache Licence 2.0.&lt;/a&gt; Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
-&lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
+        <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;自我介绍&#34;&gt;自我介绍&lt;/h2&gt;
+&lt;p&gt;千禧年的娃娃，主修环境工程，立志于成为一名伟大的工程师。对工程设计与机械制造有极大的兴趣。&lt;/p&gt;
+&lt;h2 id=&#34;常用软件&#34;&gt;常用软件&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/yuin/goldmark&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/yuin/goldmark&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/alecthomas/chroma&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/alecthomas/chroma&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/muesli/smartcrop&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/muesli/smartcrop&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/spf13/cobra&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/spf13/cobra&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/spf13/viper&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/spf13/viper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;AutoCAD (The best design tool)&lt;/li&gt;
+&lt;li&gt;AutoCAD Plant (An branch of AutoCAD for plant design)&lt;/li&gt;
+&lt;li&gt;天正CAD (中国常用设计软件, 基于AutoCAD开发)&lt;/li&gt;
+&lt;li&gt;SolidWorks (A Nice 3D Modeling Software)&lt;/li&gt;
+&lt;li&gt;VScode (The best editor in the world)&lt;/li&gt;
+&lt;li&gt;Pycharm (The best python ide)&lt;/li&gt;
+&lt;li&gt;Office (Word, Excel, Powerpoint)&lt;/li&gt;
+&lt;li&gt;Zotero (An open source knowage manager system)&lt;/li&gt;
+&lt;li&gt;Obsidian （An open source note software）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.&lt;/p&gt;
-&lt;p&gt;Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.&lt;/p&gt;
-&lt;p&gt;Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.&lt;/p&gt;
-&lt;p&gt;Learn more and contribute on &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;工作环境&#34;&gt;工作环境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows 11 (Windows is the best system I have ever used, although with bugs.)&lt;/li&gt;
+&lt;li&gt;Fedora Workstation (Linux is the future, so is redhat)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常用网站&#34;&gt;常用网站&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Github: &lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Google: &lt;a class=&#34;link&#34; href=&#34;https://www.google.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.google.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Google Scholar: &lt;a class=&#34;link&#34; href=&#34;https://scholar.google.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://scholar.google.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CAD自学网: &lt;a class=&#34;link&#34; href=&#34;https://www.cadzxw.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.cadzxw.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;学科知识&#34;&gt;学科知识&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;水污染控制工程 (Water Pollution Control Engineering)&lt;/li&gt;
+&lt;li&gt;大气污染控制工程 (Air Pollution Control Engineering)&lt;/li&gt;
+&lt;li&gt;工业水处理工程&lt;/li&gt;
+&lt;li&gt;固废处理&lt;/li&gt;
+&lt;li&gt;环境影响评价&lt;/li&gt;
+&lt;li&gt;环境工程微生物学&lt;/li&gt;
+&lt;li&gt;高等数学&lt;/li&gt;
+&lt;li&gt;线性代数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;学习ing&#34;&gt;学习ing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;English&lt;/li&gt;
+&lt;li&gt;BIM (Focus on Revit)&lt;/li&gt;
+&lt;li&gt;Data Science and Data mining&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;3D Modeling&lt;/li&gt;
+&lt;li&gt;Math&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
