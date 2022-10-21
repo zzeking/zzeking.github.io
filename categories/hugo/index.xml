@@ -13,6 +13,16 @@
         
         <guid>https://zzeking.tk/p/create_a_hugo_site/</guid>
         <description>&lt;h2 id=&#34;配置-hugo-extended&#34;&gt;配置 Hugo-Extended&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hugo 简介&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;实战&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由于本人使用Windows操作系统，为了更好的使用 Hugo ，所以我将Hugo路径写入了环境变量，这样就可以愉快的 &lt;code&gt;Hugo&lt;/code&gt; 了，配置方式如下: &lt;a class=&#34;link&#34; href=&#34;https://site.zhelper.net/Hugo/hugo-install/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo：本地安装 - 建站指南 (zhelper.net)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;为了配合Stack主题使用，需要使用 Hugo-Extended 版本，需在 Github 下载名称带 &lt;code&gt;Ext&lt;/code&gt; 的版本。下载完成之后，在一个单独文件夹使用&lt;code&gt;Hugo new site&lt;/code&gt;新建站点即可，站点目录结构如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -277,6 +287,7 @@
 &lt;h3 id=&#34;link页修改&#34;&gt;Link页修改&lt;/h3&gt;
 &lt;h2 id=&#34;发布&#34;&gt;发布&lt;/h2&gt;
 &lt;h3 id=&#34;git-pages--cloudflare&#34;&gt;Git Pages + Cloudflare&lt;/h3&gt;
+&lt;p&gt;运行 &lt;code&gt;Hugo&lt;/code&gt; 命令会重新生成站点，这时候站点静态文件全部出现在 &lt;code&gt;.\public&lt;/code&gt; 目录，为了方便部署GitPages。我们只需要先删除 &lt;code&gt;.\public&lt;/code&gt; 文件夹下面的内容，然后使用 &lt;code&gt;git init&lt;/code&gt; 命令建立仓库，然后再使用 &lt;code&gt;hugo&lt;/code&gt; 重新生成站点即可。&lt;/p&gt;
 &lt;h3 id=&#34;caddy-or-nginx-static-web-server&#34;&gt;Caddy or Nginx (Static Web Server)&lt;/h3&gt;
 </description>
         </item>

@@ -375,6 +375,16 @@
     
     
     <h2 id="配置-hugo-extended">配置 Hugo-Extended</h2>
+<blockquote>
+<p>hugo 简介</p>
+</blockquote>
+<p>Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p>
+<blockquote>
+<p>实战</p>
+</blockquote>
+<p>由于本人使用Windows操作系统，为了更好的使用 Hugo ，所以我将Hugo路径写入了环境变量，这样就可以愉快的 <code>Hugo</code> 了，配置方式如下: <a class="link" href="https://site.zhelper.net/Hugo/hugo-install/"  target="_blank" rel="noopener"
+    >Hugo：本地安装 - 建站指南 (zhelper.net)</a></p>
+<p>为了配合Stack主题使用，需要使用 Hugo-Extended 版本，需在 Github 下载名称带 <code>Ext</code> 的版本。下载完成之后，在一个单独文件夹使用<code>Hugo new site</code>新建站点即可，站点目录结构如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -639,6 +649,7 @@
 <h3 id="link页修改">Link页修改</h3>
 <h2 id="发布">发布</h2>
 <h3 id="git-pages--cloudflare">Git Pages + Cloudflare</h3>
+<p>运行 <code>Hugo</code> 命令会重新生成站点，这时候站点静态文件全部出现在 <code>.\public</code> 目录，为了方便部署GitPages。我们只需要先删除 <code>.\public</code> 文件夹下面的内容，然后使用 <code>git init</code> 命令建立仓库，然后再使用 <code>hugo</code> 重新生成站点即可。</p>
 <h3 id="caddy-or-nginx-static-web-server">Caddy or Nginx (Static Web Server)</h3>
 
 </section>
