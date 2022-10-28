@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>shell on zzeking&#39;s blog</title>
+        <link>https://zzeking.tk/tags/shell/</link>
+        <description>Recent content in shell on zzeking&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 28 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zzeking.tk/tags/shell/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>记 Anaconda 在 Powershell 上的使用</title>
+        <link>https://zzeking.tk/p/anaconda_fixed_powershell/</link>
+        <pubDate>Fri, 28 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://zzeking.tk/p/anaconda_fixed_powershell/</guid>
+        <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+&lt;p&gt;因为个人倾向于使用Powershell或者 MicrosoftPowershell ，但是我安装完成anaconda之后，在Powershell里面执行conda命令，会得到如下提示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The term &lt;span class=&#34;s1&#34;&gt;&amp;#39;conda&amp;#39;&lt;/span&gt; is not recognized as a name of a cmdlet ...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我首先考虑到是不是我应该向Windows环境变量中添加conda的环境变量，但是经过查询官方文档，conda并不建议加入到环境变量之中。&lt;/p&gt;
+&lt;p&gt;所以我得仔细看看是什么地方出了毛病。&lt;/p&gt;
+&lt;h2 id=&#34;问题分析&#34;&gt;问题分析&lt;/h2&gt;
+&lt;p&gt;在按照官方教程安装完&lt;code&gt;anaconda&lt;/code&gt;，并且使用&lt;code&gt;conda init powershell&lt;/code&gt;添加Powershell对conda的支持之后&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;base&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\z&lt;/span&gt;ze&amp;gt;conda init powershell
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;cripts&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;cripts&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda-env.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;cripts&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda-script.py
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;cripts&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda-env-script.py
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;ondabin&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda.bat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\L&lt;/span&gt;ibrary&lt;span class=&#34;se&#34;&gt;\b&lt;/span&gt;in&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda.bat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;ondabin&lt;span class=&#34;se&#34;&gt;\_&lt;/span&gt;conda_activate.bat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;ondabin&lt;span class=&#34;se&#34;&gt;\r&lt;/span&gt;ename_tmp.bat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;ondabin&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda_auto_activate.bat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;ondabin&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda_hook.bat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;cripts&lt;span class=&#34;se&#34;&gt;\a&lt;/span&gt;ctivate.bat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;ondabin&lt;span class=&#34;se&#34;&gt;\a&lt;/span&gt;ctivate.bat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;ondabin&lt;span class=&#34;se&#34;&gt;\d&lt;/span&gt;eactivate.bat
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;cripts&lt;span class=&#34;se&#34;&gt;\a&lt;/span&gt;ctivate
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;cripts&lt;span class=&#34;se&#34;&gt;\d&lt;/span&gt;eactivate
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\e&lt;/span&gt;tc&lt;span class=&#34;se&#34;&gt;\p&lt;/span&gt;rofile.d&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\e&lt;/span&gt;tc&lt;span class=&#34;se&#34;&gt;\f&lt;/span&gt;ish&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onf.d&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda.fish
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\s&lt;/span&gt;hell&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;ondabin&lt;span class=&#34;se&#34;&gt;\C&lt;/span&gt;onda.psm1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\s&lt;/span&gt;hell&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;ondabin&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda-hook.ps1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\L&lt;/span&gt;ib&lt;span class=&#34;se&#34;&gt;\s&lt;/span&gt;ite-packages&lt;span class=&#34;se&#34;&gt;\x&lt;/span&gt;ontrib&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda.xsh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no change     E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\e&lt;/span&gt;tc&lt;span class=&#34;se&#34;&gt;\p&lt;/span&gt;rofile.d&lt;span class=&#34;se&#34;&gt;\c&lt;/span&gt;onda.csh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;modified      D:&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive - zzeking&lt;span class=&#34;se&#34;&gt;\�&lt;/span&gt;ĵ�&lt;span class=&#34;se&#34;&gt;\W&lt;/span&gt;indowsPowerShell&lt;span class=&#34;se&#34;&gt;\p&lt;/span&gt;rofile.ps1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;modified      D:&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive - zzeking&lt;span class=&#34;se&#34;&gt;\�&lt;/span&gt;ĵ�&lt;span class=&#34;se&#34;&gt;\P&lt;/span&gt;owerShell&lt;span class=&#34;se&#34;&gt;\p&lt;/span&gt;rofile.ps1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&amp;gt; For changes to take effect, close and re-open your current shell. &amp;lt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;base&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\z&lt;/span&gt;ze&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;执行完命令之后有一个部分引起了我的注意：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;modified      D:&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive - zzeking&lt;span class=&#34;se&#34;&gt;\�&lt;/span&gt;ĵ�&lt;span class=&#34;se&#34;&gt;\W&lt;/span&gt;indowsPowerShell&lt;span class=&#34;se&#34;&gt;\p&lt;/span&gt;rofile.ps1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;modified      D:&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive - zzeking&lt;span class=&#34;se&#34;&gt;\�&lt;/span&gt;ĵ�&lt;span class=&#34;se&#34;&gt;\P&lt;/span&gt;owerShell&lt;span class=&#34;se&#34;&gt;\p&lt;/span&gt;rofile.ps1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这里居然出现了两个乱码，这是不是就是我要解决的问题呢？&lt;/p&gt;
+&lt;p&gt;通过ls命令查看WindowsPowershell配置文件的位置，如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\z&lt;/span&gt;ze&amp;gt; ls &lt;span class=&#34;nv&#34;&gt;$profile&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    目录: D:&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive&lt;span class=&#34;se&#34;&gt;\O&lt;/span&gt;neDrive - zzeking&lt;span class=&#34;se&#34;&gt;\文&lt;/span&gt;档&lt;span class=&#34;se&#34;&gt;\W&lt;/span&gt;indowsPowerShell
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mode                 LastWriteTime         Length Name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;----                 -------------         ------ ----
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-a---l        2022/10/28      7:08            &lt;span class=&#34;m&#34;&gt;214&lt;/span&gt; Microsoft.PowerShell_profile.ps1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\z&lt;/span&gt;ze&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这样来说我只需要将anaconda生成的错误路径的配置搬到正确路径的文件中就行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\z&lt;/span&gt;ze&amp;gt; cat &lt;span class=&#34;s1&#34;&gt;&amp;#39;D:\OneDrive\OneDrive - zzeking\�ĵ�\WindowsPowerShell\profile.ps1&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\z&lt;/span&gt;ze&amp;gt; notepad &lt;span class=&#34;nv&#34;&gt;$profile&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;完成，再把那俩乱码文件夹删干净就好了。然后重新打开Powershell，验证一下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PS C:&lt;span class=&#34;se&#34;&gt;\U&lt;/span&gt;sers&lt;span class=&#34;se&#34;&gt;\z&lt;/span&gt;ze&amp;gt;conda info -e
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# conda environments:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base                  *  E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Math_Learn               E:&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;nvironment&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;naconda&lt;span class=&#34;se&#34;&gt;\e&lt;/span&gt;nvs&lt;span class=&#34;se&#34;&gt;\M&lt;/span&gt;ath_Learn
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;此处Powershell不能正常使用conda需要使用conda init powershell；&lt;/li&gt;
+&lt;li&gt;由于onedrive存在的原因，需要重新修改conda 生成的配置文件路径；&lt;/li&gt;
+&lt;li&gt;经过测试加载此配置文件会导致Powershell启动变慢，可以使用&lt;code&gt;conda config --set auto_activate_base false&lt;/code&gt;默认不激活conda环境加快速度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;about Profiles - PowerShell | Microsoft Learn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.conda.io/projects/conda/en/latest/commands/init.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;conda init — conda 22.9.0.post58+773a5f0ff documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/weixin_44638114/article/details/111087826&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ananconda powershell init失败&amp;amp;无法激活环境问题_往事封尘的博客-CSDN博客_conda init失败&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

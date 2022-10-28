@@ -3,10 +3,40 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zzeking.tk/</loc>
-    <lastmod>2022-10-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/anaconda/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zzeking.tk/categories/</loc>
-    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/post/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/powershell/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/categories/powershell/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/python/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/shell/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/tags/windows/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/categories/windows/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://zzeking.tk/p/anaconda_fixed_powershell/</loc>
+    <lastmod>2022-10-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zzeking.tk/tags/container/</loc>
     <lastmod>2022-10-11T00:00:00+00:00</lastmod>
@@ -32,13 +62,7 @@
     <loc>https://zzeking.tk/p/swag_linuxserver/</loc>
     <lastmod>2022-10-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://zzeking.tk/post/</loc>
-    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://zzeking.tk/tags/reverse-proxy/</loc>
-    <lastmod>2022-10-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zzeking.tk/tags/</loc>
     <lastmod>2022-10-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zzeking.tk/tags/waf/</loc>
